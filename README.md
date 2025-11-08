@@ -7,7 +7,7 @@ This ETL pipeline processes BMW vehicle sales data to extract meaningful busines
 
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue)
-![MySQL](https://img.shields.io/badge/MySQL-Database-orange)
+![MySQL](https://img.shields.io/badge/SQLite-Database-orange)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
 
