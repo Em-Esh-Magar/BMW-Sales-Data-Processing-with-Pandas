@@ -1,4 +1,5 @@
 import pandas as pd
+import sqlite3
 from datetime import datetime as dt
 
 
@@ -167,6 +168,13 @@ def load_data(data):
     # On Excel File 
     data.to_excel("Transformed_Data.xlsx",index = False)
     data.to_csv("Transformed_Data.csv",index = False)
+    
+    # Load on database 
+    conn = sqlite3.connect('bmw_sales.db')
+    data.to_sql('bmw_sales', conn, if_exists='replace', index=False)
+    conn.close()
+    print("✅ Data stored in SQLite database: bmw_sales.db")
+
 
 
 if __name__ == "__main__":
