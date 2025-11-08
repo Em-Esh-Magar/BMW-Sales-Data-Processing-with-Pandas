@@ -57,6 +57,22 @@ def extract_data():
     return data
 
 
+def validate_data(df):
+    """Enhanced data validation"""
+    print("\n=== DATA VALIDATION ===")
+    
+    # Check for invalid values
+    invalid_age = df[df['Vehicle_Age'] < 0]
+    invalid_avg_km = df[df['Avg KM'] < 0]
+    
+    print(f"Invalid vehicle ages: {len(invalid_age)}")
+    print(f"Invalid average KM: {len(invalid_avg_km)}")
+    
+    # Check data types
+    print(f"\nData types:")
+    print(df.dtypes)
+    
+    return len(invalid_age) + len(invalid_avg_km) == 0
 
 # Transform Data starts from here
 
@@ -131,7 +147,7 @@ def transform_data(data):
 
     data = data.drop(["Transmission",'Engine_Size_L','Mileage_KM','Price_USD','Sales_Volume'],axis=1)
 
-
+    validate_data(data)
 
     # Findings
     print("Collection Categoried with respect to Car Color: ")
